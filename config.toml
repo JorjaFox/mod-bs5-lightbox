@@ -5,7 +5,7 @@
     max = ""
   [[module.mounts]]
     source = "dist/index.bundle.min.js"
-    target = "assets/js/modules/bs5-lightbox.js"
+    target = "assets/js/modules/bs5-lightbox/bs5-lightbox.js"
   [[module.mounts]]
     source = 'layouts'
     target = 'layouts'
