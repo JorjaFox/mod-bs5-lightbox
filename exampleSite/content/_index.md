@@ -1,7 +1,12 @@
 ---
-title: Test site
+title: Test Lightbox
 description: Site to test module shortcode(s).
-date: 2023-07-10
+date: 2024-08-02
+module: ["bs5-lightbox"]
+photogallery:
+ - "img/example-01.jpg"
+ - "img/example-03.jpg"
+ - "img/example-02.jpg"
 ---
 
-TODO: placeholder
+This is a post with a gallery.

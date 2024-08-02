@@ -22,17 +22,35 @@ While I can't imagine anyone else wanting to use this, it loads the JS for the l
 
 ## Usage
 
-The module is "optional" per default. In this case the module must be enabled in the frontmatter of the pages that use mermaid by adding: `modules: ["bs5-lightbox"]`
+The module is "optional" per default. In this case the module must be enabled in the frontmatter of the pages that use the lightbox by adding: `modules: ["bs5-lightbox"]`
 
-To make it work with your images, you need to wrap a URL around it with the following params:
+To make it work with your images, you need to wrap a URL around it with the following params: `data-toggle="lightbox" data-gallery="gallery"`
+
+Example:
 
 ```
 <a href="{{ $image }}" data-toggle="lightbox" data-gallery="gallery">
-    {{- partial "assets/image.html" (dict "url" . "ratio" "1x1" "wrapper" "mx-auto" "class" "img-fluid") -}}
+    {{- partial "assets/image.html" (dict "url" {{ $image }} "ratio" "1x1" "wrapper" "mx-auto" "class" "img-fluid") -}}
 </a>
 ```
 
-In my case, I did this in a a template, but you could convert it to a shortcode.
+### Shortcode
+
+For the shortcode to content, your frontmatter must include:
+```
+----
+modules: ["bs5-lightbox"]
+photogallery:
+ - /img/path/to/image1.jpg
+ - /img/path/to/image2.jpg
+----
+```
+
+And in your post content:
+
+`{{< bs5-lightbox title="Alt text" >}}`
+
+Images should be located in the `assets/img` folder, and will be resized by Hinode. If you don't use a title, it will use the page title.
 
 ## Contributing
 
