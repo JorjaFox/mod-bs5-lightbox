@@ -3,5 +3,4 @@
 [modules]
     [modules.bs5-lightbox]
         integration = "optional"
-        disableTemplate = true
-        state = "defer"
+        state = "async"
