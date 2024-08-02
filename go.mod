@@ -1,4 +1,4 @@
-module github.com/gethinode/mod-template
+module github.com/JorjaFox/mod-bs5-lightbox
 
 go 1.19
 
