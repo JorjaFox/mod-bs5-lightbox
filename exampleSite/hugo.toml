@@ -1,15 +1,24 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'Test site for mod-template'
+title = 'Test site for mod-bs5-lightbox'
 
 [module]
-  # Build and serve using local mod-template clone declared in the named Hugo workspace:
-  workspace = "mod-template.work"
+  workspace = "mod-bs5-lightbox.work"
   [[module.imports]]
-    path = "github.com/gethinode/mod-template"
+    path = "github.com/JorjaFox/mod-bs5-lightbox"
   [[module.imports.mounts]]
     source = "dist"
     target = "static"
   [[module.imports.mounts]]
     source = "layouts"
     target = "layouts"
+
+[params]
+  [modules]
+    [modules.bs5-lightbox]
+      integration = "optional"
+      disableTemplate = false
+      state = "async"
+  [debugging]
+    showJS = true
+    showSCSS = true
