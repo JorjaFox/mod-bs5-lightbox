@@ -1,8 +1,8 @@
-# Hinode Module - Template
+# Hinode Module - Lightbox for Boostrap 5
 
 <!-- Tagline -->
 <p align="center">
-    <b>A template to define a Hugo module compatible with Hinode</b>
+    <b>A Hugo module for [Lightbox for Boostrap 5](https://trvswgnr.github.io/bs5-lightbox/) that is compatible with Hinode</b>
     <br />
 </p>
 
@@ -14,25 +14,25 @@
     <a href="https://gethinode.com" alt="Hinode theme">
         <img src="https://img.shields.io/badge/theme-hinode-blue">
     </a>
-    <a href="https://github.com/gethinode/mod-template/commits/main" alt="Last commit">
-        <img src="https://img.shields.io/github/last-commit/gethinode/mod-template.svg">
-    </a>
-    <a href="https://github.com/gethinode/mod-template/issues" alt="Issues">
-        <img src="https://img.shields.io/github/issues/gethinode/mod-template.svg">
-    </a>
-    <a href="https://github.com/gethinode/mod-template/pulls" alt="Pulls">
-        <img src="https://img.shields.io/github/issues-pr-raw/gethinode/mod-template.svg">
-    </a>
-    <a href="https://github.com/gethinode/mod-template/blob/main/LICENSE" alt="License">
-        <img src="https://img.shields.io/github/license/gethinode/mod-template">
-    </a>
 </p>
 
 ## About
 
-![Logo](https://raw.githubusercontent.com/gethinode/hinode/main/static/img/logo.png)
+While I can't imagine anyone else wanting to use this, it loads the JS for the lightbox _after_ Bootstrap.
 
-Hinode is a clean blog theme for [Hugo][hugo], an open-source static site generator. Hinode is available as a [template][repository_template], and a [main theme][repository]. <!-- This repository maintains a Hugo module to add [module][module] to a Hinode site. --> Visit the Hinode documentation site for [installation instructions][hinode_docs].
+## Usage
+
+The module is "optional" per default. In this case the module must be enabled in the frontmatter of the pages that use mermaid by adding: `modules: ["bs5-lightbox"]`
+
+To make it work with your images, you need to wrap a URL around it with the following params:
+
+```
+<a href="{{ $image }}" data-toggle="lightbox" data-gallery="gallery">
+    {{- partial "assets/image.html" (dict "url" . "ratio" "1x1" "wrapper" "mx-auto" "class" "img-fluid") -}}
+</a>
+```
+
+In my case, I did this in a a template, but you could convert it to a shortcode.
 
 ## Contributing
 

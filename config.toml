@@ -4,6 +4,9 @@
     min = "0.110.0"
     max = ""
   [[module.mounts]]
+    source = "dist/index.bundle.min.js"
+    target = "static/js/bs5-lightbox.js"
+  [[module.mounts]]
     source = 'layouts'
     target = 'layouts'
   [[module.mounts]]

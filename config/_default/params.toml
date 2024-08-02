@@ -1,0 +1,7 @@
+# default configuration for bs5-lightbox
+
+[modules]
+    [modules.bs5-lightbox]
+        integration = "optional"
+        disableTemplate = true
+        state = "defer"

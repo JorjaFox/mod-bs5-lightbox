@@ -1,7 +1,7 @@
 {
-  "name": "@gethinode/mod-template",
+  "name": "@jorjafox/mod-bs5-lightbox",
   "version": "0.0.0",
-  "description": "A template to define a Hugo module compatible with Hinode",
+  "description": "Bring in the Bootstrap 5 Lightbox module for Hinode on Hugo",
   "keywords": [
     "hugo",
     "module"
@@ -21,21 +21,22 @@
     "mod:update": "rimraf _vendor && hugo mod get -u ./... && hugo mod get -u && npm run -s mod:vendor && npm run -s mod:tidy",
     "mod:tidy": "hugo mod tidy",
     "mod:vendor": "rimraf _vendor && hugo mod vendor",
-    "postinstall": "echo TODO: add postinstall instructions",
+    "postinstall": "npm run -s copy:js",
+    "copy:js": "cpy node_modules/bs5-lightbox/dist/index.bundle.min.js dist --flat",
     "test": "npm run -s build",
     "upgrade": "npx npm-check-updates -u && npm run -s mod:update",
     "prepare": "node .husky/install.mjs"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gethinode/mod-template.git"
+    "url": "git+https://github.com/JorjaFox/mod-bs5-lightbox.git"
   },
-  "author": "Mark Dumay",
+  "author": "Mika Epstein",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gethinode/hinode/issues"
+    "url": "https://github.com/JorjaFox/mod-bs5-lightbox/issues"
   },
-  "homepage": "https://gethinode.com",
+  "homepage": "https://halfelf.org",
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
@@ -47,6 +48,7 @@
     "hugo-bin": "^0.127.0",
     "husky": "^9.1.4",
     "rimraf": "^6.0.1",
+    "bs5-lightbox": "^1.8.3",
     "semantic-release": "^24.0.0"
   },
   "hugo-bin": {
