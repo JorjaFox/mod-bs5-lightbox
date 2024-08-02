@@ -10,3 +10,5 @@ photogallery:
 ---
 
 This is a post with a gallery.
+
+{{< bs5-lightbox >}}

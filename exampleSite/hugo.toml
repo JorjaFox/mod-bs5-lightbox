@@ -4,6 +4,8 @@ title = 'Test site for mod-bs5-lightbox'
 
 [module]
   workspace = "mod-bs5-lightbox.work"
+ [[module.imports]]
+    path = "github.com/gethinode/hinode"
   [[module.imports]]
     path = "github.com/JorjaFox/mod-bs5-lightbox"
   [[module.imports.mounts]]
