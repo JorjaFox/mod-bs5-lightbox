@@ -1,3 +1,5 @@
+github.com/JorjaFox/mod-bs5-lightbox v0.0.3 h1:B3YZFc3mZFSi3yYDsL2NzDgQWUIcqPsheSOT8U1/ukM=
+github.com/JorjaFox/mod-bs5-lightbox v0.0.3/go.mod h1:WboKucxtvOtxdSG4aVA6End1RpsrSmPE0zGnALIQ7qM=
 github.com/airbnb/lottie-web v5.12.2+incompatible h1:Ldogtlhiucf7mMsgisyxSBY0qunV44+lpa9Icy2KoQc=
 github.com/airbnb/lottie-web v5.12.2+incompatible/go.mod h1:nTss557UK9FGnp8QYlCMO29tjUHwbdAHG/DprbGfHGE=
 github.com/gethinode/hinode v0.25.1 h1:sxHnKmvsGhEmzVn3VVADS0G982hFN/V1BjyGaNmCdaI=
@@ -16,6 +18,8 @@ github.com/gethinode/mod-lottie v1.5.6 h1:dxz5nmD0XXEt/DAOc1s5fIPynj5bhzDL32EEwL
 github.com/gethinode/mod-lottie v1.5.6/go.mod h1:VTvBxD8VokICwnEqM0VUZFZHBYxLf4/grDFQyEh1DL0=
 github.com/gethinode/mod-simple-datatables v1.0.5 h1:2Aa4k1Bd1WEYHbskFQj+1X35BB7abB8RXHE7Uk2N4pg=
 github.com/gethinode/mod-simple-datatables v1.0.5/go.mod h1:mmrcvAJU2i3SMU56VmQ5PW43uDXBcsJKcZwCHrvl3Kc=
+github.com/gethinode/mod-simple-datatables v1.0.6 h1:voKiwLAfC7kfD+atv7ah0sOf8OcPRyxEB/Q92gx1d00=
+github.com/gethinode/mod-simple-datatables v1.0.6/go.mod h1:Y7AzIYAWpzDKLvH96eqBA/Gs3jompWCgxadLuoKZ/rc=
 github.com/gethinode/mod-template v0.0.0-20240304031439-297f26e96855 h1:79n9BJStYGBmvg2wXq0CdpDH1+jYlvLa68iaiAsHw0M=
 github.com/gethinode/mod-template v0.0.0-20240304031439-297f26e96855/go.mod h1:6ofWqxiQMhTnI8U6mT3FrEUN1UZ0vcUcZyXVIny2CZs=
 github.com/gethinode/mod-template v0.0.0-20240304050912-e05887822540 h1:wdzsVwBiQyKkUNxDE06cn66CMzL04I86XP0cMNKM4+4=
