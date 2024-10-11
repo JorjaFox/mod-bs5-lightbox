@@ -9,37 +9,54 @@
     {{ $title := .Get "title" }}
 {{ end }}
 
+<!-- Set Defaults -->
+{{- $imageurl := "" -}}
+{{- $imagesrc := "" -}}
+{{- $image    := "" -}}
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
-    {{ range $photogallery }}
-        {{- $imageurl := . | absURL -}}
-        {{- $imagesrc := . | absURL -}}
+{{ range $photogallery }}
+    {{- $imageurl = . -}}
+    {{- $imagesrc = . -}}
 
-        <!-- This handles all local images -->
-        {{ with resources.Get $imageurl }}
-            {{ $image := $imageurl.Crop "250x250" }}
-            {{ $imagesrc = $image.RelPermalink }}
-        {{ end }}
+    <!-- This handles all local images -->
+    {{ with resources.Get $imageurl }}
+        {{ $image    = .Crop "250x250" }}
+        {{ $imagesrc = $image.RelPermalink }}
+    {{ end }}
 
+    <!-- If there's no image then this is remote -->
+    {{ if eq $image "" }}
+        {{- $imageurl = . | absURL -}}
+        {{- $imagesrc = . | absURL -}}
         <!--
-            This sets the download path for the remote images. 
-            If your image is at example.com/folder/image.jpg then it will be 
-            downloaded to /img/folder/image.jpg. The RNG prevents name conflicts.
+        This sets the download path for the remote images.
+        If your image is at example.com/path/to/folder/image.jpg then it will be
+        downloaded to /img/path/to/folder/image.jpg.
         -->
-        {{ $dir  := (urls.Parse $imageurl).Path }}
+        {{ $dir := (urls.Parse $imageurl).Path }}
 
         <!-- This handles all remote images -->
         {{ with resources.GetRemote $imageurl | resources.Copy $dir }}
-            {{ $image := . }}
-            {{ $imageurl = $image.Permalink }}
-            {{ $image = $image.Crop "250x250" }}
-            {{ $imagesrc = $image.RelPermalink }}
+            {{ with .Err }}
+                {{ warnf "%s" . }}
+            {{ else }}
+                {{ $image    = . }}
+                {{ $imageurl = $image.Permalink }}
+                {{ $image    = $image.Crop "250x250" }}
+                {{ $imagesrc = $image.RelPermalink }}
+            {{ end }}
         {{ end }}
-    <div class="col">
-        <div class="card">
-            <div class="mx-auto">
-                <img src="{{ $imagesrc }}" class="img-fluid img-lightbox" alt="{{ $title }}" data-toggle="lightbox" data-gallery="gallery" data-src="{{ $imageurl }}">
-           </div>
+    {{ end }} <!-- End of not $image -->
+
+    {{ if $imagesrc }}
+        <div class="col">
+            <div class="card">
+                <div class="mx-auto">
+                    <img src="{{ $imagesrc }}" class="img-fluid img-lightbox" alt="{{ $title }}" data-toggle="lightbox" data-gallery="gallery" data-src="{{ $imageurl }}">
+            </div>
+            </div>
         </div>
-    </div>
     {{ end }}
+{{ end }}
 </div>
