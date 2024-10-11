@@ -11,20 +11,34 @@
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
     {{ range $photogallery }}
-    {{- $image := . | absURL -}}
+        {{- $imageurl := . | absURL -}}
+        {{- $imagesrc := . | absURL -}}
+
+        <!-- This handles all local images -->
+        {{ with resources.Get $imageurl }}
+            {{ $image := $imageurl.Crop "250x250" }}
+            {{ $imagesrc = $image.RelPermalink }}
+        {{ end }}
+
+        <!--
+            This sets the download path for the remote images. 
+            If your image is at example.com/folder/image.jpg then it will be 
+            downloaded to /img/folder/image.jpg. The RNG prevents name conflicts.
+        -->
+        {{ $dir  := (urls.Parse $imageurl).Path }}
+
+        <!-- This handles all remote images -->
+        {{ with resources.GetRemote $imageurl | resources.Copy $dir }}
+            {{ $image := . }}
+            {{ $imageurl = $image.Permalink }}
+            {{ $image = $image.Crop "250x250" }}
+            {{ $imagesrc = $image.RelPermalink }}
+        {{ end }}
     <div class="col">
         <div class="card">
-            <a href="{{ $image }}" data-toggle="lightbox" data-gallery="gallery">
-            {{- partial "assets/image.html" (
-            	dict
-            		"url" .
-                	"ratio" "1x1"
-                	"wrapper" "mx-auto"
-                	"loading" "lazy"
-                	"title" $title
-                )
-            -}}
-            </a>
+            <div class="mx-auto">
+                <img src="{{ $imagesrc }}" class="img-fluid img-lightbox" alt="{{ $title }}" data-toggle="lightbox" data-gallery="gallery" data-src="{{ $imageurl }}">
+           </div>
         </div>
     </div>
     {{ end }}
