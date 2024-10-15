@@ -6,3 +6,5 @@ github.com/JorjaFox/mod-bs5-lightbox v0.0.4-0.20240807230628-e7631949ff67 h1:432
 github.com/JorjaFox/mod-bs5-lightbox v0.0.4-0.20240807230628-e7631949ff67/go.mod h1:WboKucxtvOtxdSG4aVA6End1RpsrSmPE0zGnALIQ7qM=
 github.com/JorjaFox/mod-bs5-lightbox v0.0.4-0.20240927221953-447a445cab70 h1:O+W6zQmfUthKxUQIa6RyDd1g/3d7VMXUgj2Eqaz2dHI=
 github.com/JorjaFox/mod-bs5-lightbox v0.0.4-0.20240927221953-447a445cab70/go.mod h1:WboKucxtvOtxdSG4aVA6End1RpsrSmPE0zGnALIQ7qM=
+github.com/JorjaFox/mod-bs5-lightbox v0.0.4 h1:dguPIUHYaTUNmt/YUfqzixvpYhfHngrB1/MpoqEqLMk=
+github.com/JorjaFox/mod-bs5-lightbox v0.0.4/go.mod h1:1Hzhh5d/tysJWUyVO2ZPjUc8q+DMB9L8EuLhdfZ5kR8=

@@ -1,6 +1,6 @@
 {
   "name": "@jorjafox/mod-bs5-lightbox",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Bring in the Bootstrap 5 Lightbox module for Hinode on Hugo",
   "keywords": [
     "hugo",
