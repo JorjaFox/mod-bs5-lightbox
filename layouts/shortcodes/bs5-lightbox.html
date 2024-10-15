@@ -21,7 +21,7 @@
 
     <!-- This handles all local images -->
     {{ with resources.Get $imageurl }}
-        {{ $image    = .Crop "250x250" }}
+        {{ $image    = .Fill "250x250" }}
         {{ $imagesrc = $image.RelPermalink }}
     {{ end }}
 
@@ -43,7 +43,7 @@
             {{ else }}
                 {{ $image    = . }}
                 {{ $imageurl = $image.Permalink }}
-                {{ $image    = $image.Crop "250x250" }}
+                {{ $image    = $image.Fill "250x250" }}
                 {{ $imagesrc = $image.RelPermalink }}
             {{ end }}
         {{ end }}
