@@ -18,7 +18,7 @@
 
 ## About
 
-While I can't imagine anyone else wanting to use this, it loads the JS for the lightbox _after_ Bootstrap.
+While I can't imagine anyone else wanting to use this, it loads the JS for the lightbox _after_ Bootstrap, which is required for the lightbox to work.
 
 ## Usage
 

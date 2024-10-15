@@ -1,7 +1,6 @@
 <!--
     Copyright © 2024 Mika Epstein (Ipstenu)
     Use of this source code is governed by The MIT License (MIT) that can be found in the LICENSE file.
-    Visit gethinode.com/license for more details.
 -->
 {{ $photogallery := $.Page.Params.photogallery }}
 {{ $title := "Photo Gallery" }}
@@ -10,20 +9,54 @@
     {{ $title := .Get "title" }}
 {{ end }}
 
+<!-- Set Defaults -->
+{{- $imageurl := "" -}}
+{{- $imagesrc := "" -}}
+{{- $image    := "" -}}
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
-    {{ range $photogallery }}
-    {{- $image := . | absURL -}}
-    <div class="col">
-        <div class="card">
-            <a href="{{ $image }}" data-toggle="lightbox" data-gallery="gallery">
-            {{- partial "assets/image.html" (dict
-                "url" .
-                "ratio" "1x1"
-                "wrapper" "mx-auto"
-                "title" $title)
-            -}}
-            </a>
-        </div>
-    </div>
+{{ range $photogallery }}
+    {{- $imageurl = . -}}
+    {{- $imagesrc = . -}}
+
+    <!-- This handles all local images -->
+    {{ with resources.Get $imageurl }}
+        {{ $image    = .Crop "250x250" }}
+        {{ $imagesrc = $image.RelPermalink }}
     {{ end }}
+
+    <!-- If there's no image then this is remote -->
+    {{ if eq $image "" }}
+        {{- $imageurl = . | absURL -}}
+        {{- $imagesrc = . | absURL -}}
+        <!--
+        This sets the download path for the remote images.
+        If your image is at example.com/path/to/folder/image.jpg then it will be
+        downloaded to /img/path/to/folder/image.jpg.
+        -->
+        {{ $dir := (urls.Parse $imageurl).Path }}
+
+        <!-- This handles all remote images -->
+        {{ with resources.GetRemote $imageurl | resources.Copy $dir }}
+            {{ with .Err }}
+                {{ warnf "%s" . }}
+            {{ else }}
+                {{ $image    = . }}
+                {{ $imageurl = $image.Permalink }}
+                {{ $image    = $image.Crop "250x250" }}
+                {{ $imagesrc = $image.RelPermalink }}
+            {{ end }}
+        {{ end }}
+    {{ end }} <!-- End of not $image -->
+
+    {{ if $imagesrc }}
+        <div class="col">
+            <div class="card">
+                <div class="mx-auto">
+                    <img src="{{ $imagesrc }}" class="img-fluid img-lightbox" alt="{{ $title }}" data-toggle="lightbox" data-gallery="gallery" data-src="{{ $imageurl }}">
+            </div>
+            </div>
+        </div>
+    {{ end }}
+{{ end }}
 </div>
