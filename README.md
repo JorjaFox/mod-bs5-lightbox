@@ -36,7 +36,7 @@ Example:
 
 ### Shortcode
 
-For the shortcode to content, your frontmatter must include:
+For the shortcode to content, your front matter must include:
 ```
 ----
 modules: ["bs5-lightbox"]

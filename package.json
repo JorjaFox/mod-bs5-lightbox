@@ -25,7 +25,8 @@
     "copy:js": "cpy node_modules/bs5-lightbox/dist/index.bundle.min.js dist --flat",
     "test": "npm run -s build",
     "upgrade": "npx npm-check-updates -u && npm run -s mod:update",
-    "prepare": "node .husky/install.mjs"
+    "prepare": "node .husky/install.mjs",
+    "vcheck": "hugo version"
   },
   "repository": {
     "type": "git",
@@ -42,14 +43,15 @@
     "@commitlint/config-conventional": "^19.7.1",
     "@semantic-release/exec": "^7.0.3",
     "@semantic-release/git": "^10.0.1",
+    "bs5-lightbox": "^1.8.3",
     "commitizen": "^4.3.1",
     "cpy-cli": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "hugo-bin": "^0.140.1",
+    "hugo-extended": "^0.143.1",
     "husky": "^9.1.7",
     "rimraf": "^6.0.1",
-    "bs5-lightbox": "^1.8.3",
-    "semantic-release": "^24.2.2"
+    "semantic-release": "^24.2.3"
   },
   "hugo-bin": {
     "buildTags": "extended"
