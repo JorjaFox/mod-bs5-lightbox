@@ -2,7 +2,7 @@
 
 <!-- Tagline -->
 <p align="center">
-    <b>A Hugo module for [Lightbox for Boostrap 5](https://trvswgnr.github.io/bs5-lightbox/) that is compatible with Hinode</b>
+    <b>A Hugo module for <a href="https://trvswgnr.github.io/bs5-lightbox/">Lightbox for Boostrap 5</a> that is compatible with Hinode</b>
     <br />
 </p>
 
