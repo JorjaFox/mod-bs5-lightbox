@@ -3,7 +3,7 @@ module github.com/JorjaFox/mod-bs5-lightbox/exampleSite
 go 1.19
 
 require (
-	github.com/JorjaFox/mod-bs5-lightbox v0.0.5 // indirect
+	github.com/JorjaFox/mod-bs5-lightbox v0.0.6 // indirect
 	github.com/airbnb/lottie-web v5.12.2+incompatible // indirect
 	github.com/gethinode/hinode v0.29.3 // indirect
 	github.com/gethinode/mod-bootstrap v1.3.2 // indirect
