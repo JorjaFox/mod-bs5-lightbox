@@ -51,7 +51,7 @@
     "hugo-extended": "^0.147.3",
     "husky": "^9.1.7",
     "rimraf": "^6.0.1",
-    "semantic-release": "^24.2.3"
+    "semantic-release": "^24.2.4"
   },
   "hugo-bin": {
     "buildTags": "extended"
